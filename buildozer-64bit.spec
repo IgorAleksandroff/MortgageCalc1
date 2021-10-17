@@ -7,7 +7,7 @@ title = PiTuning
 package.name = mortgagecalc1
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.wiseplat
+package.domain = org.IgorAleksandroff
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -28,7 +28,7 @@ source.dir = .
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.2
+version = 0.3
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
