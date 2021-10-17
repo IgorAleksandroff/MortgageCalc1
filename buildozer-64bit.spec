@@ -7,7 +7,7 @@ title = PiTuning
 package.name = mortgagecalc1
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.igor-aleksandrov
+package.domain = org.wiseplat
 
 # (str) Source code where the main.py live
 source.dir = .
