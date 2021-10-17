@@ -24,7 +24,7 @@ install:
   - export PATH=$PATH:~/.local/bin/
   - ls -l
   - echo "TODO COMPILE 32bit"
-  - yes | buildozer android debug
+  - yes | travis_wait 20 buildozer android debug
   - ls -l
   - ls bin/ -l
   - echo "TODO"
