@@ -1,9 +1,9 @@
 from kivy.app import App
 from kivy.uix.label import Label
 
-class MortgageCalcApp(App):
+class MortgageCalc1App(App):
     def build(self):
         return Label(text="Hello, World")
 
 
-MortgageCalcApp().run()
+MortgageCalc1App().run()
