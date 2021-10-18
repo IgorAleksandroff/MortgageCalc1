@@ -73,10 +73,8 @@ Screen:
                         title: app.title
                         elevation: 10
                         left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
-
-                    MDTabs:        
-                        id: tabs
-                        on_tab_switch: app.on_tab_switch(*args)
+                    
+                    Widget:
 
 
         MDNavigationDrawer:
@@ -85,9 +83,6 @@ Screen:
             ContentNavigationDrawer:
                 id: content_drawer
 '''
-
-class Tab(MDFloatLayout, MDTabsBase):
-    pass
 
 
 class ContentNavigationDrawer(BoxLayout):
@@ -132,20 +127,5 @@ class MortgageCalc1App(MDApp):
                 ItemDrawer(icon=icon_name, text=icons_item[icon_name])
             )
 
-        for icon_name in icons_item.keys():
-            self.root.ids.tabs.add_widget(Tab(icon=icon_name, title=icons_item[icon_name]))
-
-    def on_tab_switch(
-            self, instance_tabs, instance_tab, instance_tab_label, tab_text
-    ):
-        '''Called when switching tabs.
-
-        :type instance_tabs: <kivymd.uix.tab.MDTabs object>;
-        :param instance_tab: <__main__.Tab object>;
-        :param instance_tab_label: <kivymd.uix.tab.MDTabsLabel object>;
-        :param tab_text: text or name icon of tab;
-        '''
-
-        pass
 
 MortgageCalc1App().run()
