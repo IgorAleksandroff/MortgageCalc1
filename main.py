@@ -1,4 +1,3 @@
-
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty, ListProperty
@@ -6,6 +5,10 @@ from kivy.properties import StringProperty, ListProperty
 from kivymd.app import MDApp
 from kivymd.theming import ThemableBehavior
 from kivymd.uix.list import OneLineIconListItem, MDList
+
+from kivymd.uix.tab import MDTabsBase
+from kivymd.uix.floatlayout import MDFloatLayout
+from kivymd.icon_definitions import md_icons
 
 KV = '''
 # Menu item in the DrawerList list.
@@ -37,13 +40,13 @@ KV = '''
             source: "data/logo/kivy-icon-256.png"
 
     MDLabel:
-        text: "KivyMD library"
+        text: app.title
         font_style: "Button"
         size_hint_y: None
         height: self.texture_size[1]
 
     MDLabel:
-        text: "kivydevelopment@gmail.com"
+        text: app.description
         font_style: "Caption"
         size_hint_y: None
         height: self.texture_size[1]
@@ -67,11 +70,13 @@ Screen:
                     orientation: 'vertical'
 
                     MDToolbar:
-                        title: "PiTuning"
+                        title: app.title
                         elevation: 10
                         left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
 
-                    Widget:
+                    MDTabs:        
+                        id: tabs
+                        on_tab_switch: app.on_tab_switch(*args)
 
 
         MDNavigationDrawer:
@@ -80,6 +85,9 @@ Screen:
             ContentNavigationDrawer:
                 id: content_drawer
 '''
+
+class Tab(MDFloatLayout, MDTabsBase):
+    pass
 
 
 class ContentNavigationDrawer(BoxLayout):
@@ -104,6 +112,9 @@ class DrawerList(ThemableBehavior, MDList):
 
 
 class MortgageCalc1App(MDApp):
+    title = "PiTuning"
+    description = "Calculator of the PID parameters"
+
     def build(self):
         return Builder.load_string(KV)
 
@@ -121,5 +132,20 @@ class MortgageCalc1App(MDApp):
                 ItemDrawer(icon=icon_name, text=icons_item[icon_name])
             )
 
+        for icon_name in icons_item.keys():
+            self.root.ids.tabs.add_widget(Tab(icon=icon_name, title=icons_item[icon_name]))
+
+    def on_tab_switch(
+            self, instance_tabs, instance_tab, instance_tab_label, tab_text
+    ):
+        '''Called when switching tabs.
+
+        :type instance_tabs: <kivymd.uix.tab.MDTabs object>;
+        :param instance_tab: <__main__.Tab object>;
+        :param instance_tab_label: <kivymd.uix.tab.MDTabsLabel object>;
+        :param tab_text: text or name icon of tab;
+        '''
+
+        print(tab_text)
 
 MortgageCalc1App().run()
