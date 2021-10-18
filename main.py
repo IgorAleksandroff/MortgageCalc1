@@ -146,6 +146,6 @@ class MortgageCalc1App(MDApp):
         :param tab_text: text or name icon of tab;
         '''
 
-        print(tab_text)
+        pass
 
 MortgageCalc1App().run()
