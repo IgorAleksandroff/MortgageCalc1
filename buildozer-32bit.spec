@@ -28,7 +28,7 @@ source.dir = .
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.4
+version = 0.5
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -46,7 +46,7 @@ requirements = python3,kivy==2.0.0,kivymd,https://github.com/kivymd/KivyMD/archi
 #presplash.filename = %(source.dir)s/data/logo/pituning_logo.png
 
 # (str) Icon of the application
-#icon.filename = %(source.dir)s/data/logo/pituning_logo.png
+icon.filename = %(source.dir)s/data/logo/pituning_logo.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = all
